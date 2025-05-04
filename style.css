@@ -1,76 +1,56 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #b7d99c;
-  background-image: url('https://i.imgur.com/Z0Y28S1.png');
-  background-size: cover;
-  margin: 0;
-  padding: 0;
+  background-color: #e0f0e0;
   color: #222;
-  transition: background-color 0.3s ease;
-}
-
-.dark-theme {
-  background-color: #1e1e1e;
-  color: white;
-}
-
-.container {
-  max-width: 500px;
-  margin: 40px auto;
-  background-color: rgba(255,255,255,0.88);
-  border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 0 20px #0005;
+  background-image: url('https://i.imgur.com/E0vSxkS.png'); /* текстура стилізована під Minecraft */
+  background-size: cover;
 }
 
-.dark-theme .container {
-  background-color: rgba(30,30,30,0.88);
-}
-
-h1, h2, h3 {
-  font-family: 'Minecraft', sans-serif;
+h1 {
   text-align: center;
+  color: #3b3b3b;
 }
 
-input, select, textarea {
+.grade-form {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+input, select, button {
   width: 100%;
+  margin: 8px 0;
   padding: 10px;
-  margin: 6px 0 12px;
-  border-radius: 8px;
-  border: 1px solid #aaa;
+  font-size: 1rem;
 }
 
 button {
-  background-color: #2f8132;
+  background-color: #4caf50;
   color: white;
-  padding: 10px 16px;
-  font-weight: bold;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  display: block;
-  margin: 12px auto;
 }
 
-button:hover {
-  background-color: #246927;
+#results {
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.grade {
+li {
+  list-style: none;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
   font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
-  display: inline-block;
 }
 
-.grade:empty::after {
-  content: "-";
-}
-
-.hidden {
-  display: none;
-}
-
-textarea {
-  height: 100px;
-}
+.grade-low { background-color: #ff9999; }       /* початковий рівень */
+.grade-medium { background-color: #fff176; }    /* середній рівень */
+.grade-good { background-color: #ccff90; }      /* достатній рівень */
+.grade-high { background-color: #80e27e; }      /* високий рівень */
