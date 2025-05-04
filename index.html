@@ -3,91 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Майнкрафт Щоденник</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Щоденник 1-А клас "Майнкрафт"</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="light-theme">
-  <div class="container">
-    <h1>Щоденник 1-А (Minecraft)</h1>
+<body>
+  <h1>Електронний щоденник – 1-А клас "Майнкрафт"</h1>
 
-    <div class="auth">
-      <label>Ім'я:</label>
-      <input type="text" id="username" placeholder="Ваше ім’я" />
-      <label>Роль:</label>
-      <select id="role">
-        <option value="student">Учень</option>
-        <option value="teacher">Вчитель</option>
-      </select>
-      <button onclick="login()">Увійти</button>
-    </div>
+  <div class="grade-form">
+    <label for="student">Учень:</label>
+    <input type="text" id="student" placeholder="Ім'я учня" />
 
-    <div id="diary" class="hidden">
-      <h2 id="welcome"></h2>
-      <div class="grades">
-        <h3>Успішність</h3>
-        <ul id="gradesList">
-          <li>Виживання: <span class="grade" id="g1">-</span></li>
-          <li>Крафти: <span class="grade" id="g2">-</span></li>
-          <li>Редстоун: <span class="grade" id="g3">-</span></li>
-          <li>Теорія: <span class="grade" id="g4">-</span></li>
-          <li>Інформатика: <span class="grade" id="g5">-</span></li>
-          <li>Практика: <span class="grade" id="g6">-</span></li>
-          <li>Фізкультура: <span class="grade" id="g7">-</span></li>
-          <li>Математика: <span class="grade" id="g8">-</span></li>
-        </ul>
-      </div>
+    <label for="subject">Предмет:</label>
+    <select id="subject">
+      <option>Виживання</option>
+      <option>Крафти</option>
+      <option>Редстоун</option>
+      <option>Теорія</option>
+      <option>Інформатика</option>
+      <option>Практика</option>
+      <option>Фізкультура</option>
+      <option>Математика</option>
+    </select>
 
-      <div id="homework" class="hidden">
-        <h3>Домашнє завдання</h3>
-        <textarea id="homeworkText" placeholder="Напиши домашнє завдання..."></textarea>
-        <button onclick="saveHomework()">Надіслати</button>
-      </div>
+    <label for="grade">Оцінка (1–12):</label>
+    <input type="number" id="grade" min="1" max="12" />
 
-      <div id="viewHomework" class="hidden">
-        <h3>Отримане домашнє завдання:</h3>
-        <div id="receivedHomework">—</div>
-      </div>
-
-      <button onclick="toggleTheme()">Змінити тему</button>
-    </div>
+    <button onclick="addGrade()">Додати оцінку</button>
   </div>
 
-  <script>
-    let userRole = '';
+  <div id="results">
+    <h2>Успішність</h2>
+    <ul id="grade-list"></ul>
+  </div>
 
-    function login() {
-      const name = document.getElementById('username').value;
-      userRole = document.getElementById('role').value;
-      if (!name) return alert("Введи ім’я");
-
-      document.querySelector('.auth').classList.add('hidden');
-      document.getElementById('diary').classList.remove('hidden');
-      document.getElementById('welcome').innerText = `Привіт, ${name}!`;
-
-      if (userRole === 'teacher') {
-        document.getElementById('homework').classList.remove('hidden');
-      } else {
-        document.getElementById('viewHomework').classList.remove('hidden');
-      }
-    }
-
-    function saveHomework() {
-      const text = document.getElementById('homeworkText').value;
-      localStorage.setItem('homework', text);
-      alert("Завдання збережено!");
-    }
-
-    function loadHomework() {
-      const hw = localStorage.getItem('homework');
-      if (hw) document.getElementById('receivedHomework').innerText = hw;
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle('dark-theme');
-      document.body.classList.toggle('light-theme');
-    }
-
-    window.onload = loadHomework;
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
